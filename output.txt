@@ -1,0 +1,31 @@
+jw5514@vm-shell2:~/Desktop/Semaphores$ make > output.txt && ./main 3 3 2 3 >> output.txt
+g++    -c -o helper.o helper.cc
+g++ -Wall -c helper.cc main.cc
+g++ -Wall -pthread -o main helper.o main.o
+producer(1): Produced job with ID 1 and duration of 9 seconds
+consumer(1): Processing job ID 1, completing in 9 seconds
+producer(2): Produced job with ID 2 and duration of 1 seconds
+consumer(2): Processing job ID 2, completing in 1 seconds
+producer(1): Produced job with ID 3 and duration of 4 seconds
+consumer(3): Processing job ID 3, completing in 4 seconds
+producer(2): Produced job with ID 1 and duration of 5 seconds
+consumer(2): Job ID 2 completed
+consumer(2): Processing job ID 1, completing in 5 seconds
+producer(1): Produced job with ID 2 and duration of 9 seconds
+producer(1): No more jobs to generate
+producer(2): Produced job with ID 3 and duration of 2 seconds
+producer(2): No more jobs to generate
+consumer(3): Job ID 3 completed
+consumer(3): Processing job ID 2, completing in 9 seconds
+consumer(2): Job ID 1 completed
+consumer(2): Processing job ID 3, completing in 2 seconds
+consumer(1): Job ID 1 completed
+consumer(1): Job queue empty, waiting for new job..
+consumer(2): Job ID 3 completed
+consumer(2): Job queue empty, waiting for new job..
+consumer(3): Job ID 2 completed
+consumer(3): Job queue empty, waiting for new job..
+consumer(1): Exiting
+consumer(2): Exiting
+consumer(3): Exiting
+jw5514@vm-shell2:~/Desktop/Semaphores$
